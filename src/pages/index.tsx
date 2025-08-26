@@ -1,9 +1,10 @@
+import Product from "@/components/pages/product/Product";
 
 
 export default function Home() {
   return (
     <div>
-      <h1>hi</h1>
+      <Product/>
 
     </div>
 
