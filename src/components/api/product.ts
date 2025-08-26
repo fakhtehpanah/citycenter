@@ -7,3 +7,12 @@ export const getProductsItems = async () => {
     console.log(data)
     return data;
 }
+export const getProductsCategories = async () => {
+    const res = await fetch(
+        'https://fakestoreapi.com/products/categories'
+    );
+    if (!res.ok) throw new Error ('failed');
+    const data = await res.json();
+    console.log(data)
+    return data;
+}

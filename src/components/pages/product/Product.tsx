@@ -1,29 +1,37 @@
-import { getProductsItems } from '@/components/api/product';
+import { getProductsCategories, getProductsItems } from '@/components/api/product';
 import React, { useEffect, useState } from 'react'
 
 function Product() {
     const [products, setProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-            const getProductsHandler = async () => {
+            const fetchData = async () => {
                 try {
-                    const data = await getProductsItems();
-                    console.log(data)
-                    setProducts(data)
+                    const products = await getProductsItems();
+                    const categories = await getProductsCategories();
+                    setProducts(products);
+                    setCategories(categories);
                 } catch(err) {
                     console.error(err)
                 }
 
             }
-            getProductsHandler();
+            fetchData();
     }, [])
   return (
-    <div>
+    <div className='bg-pink-500'>
         {products.map((product) => (
             <div key={product} className='flex flex-col gap-y-10'>
                 {product.title}
             </div>
         ))}
+        <div className='bg-green-600'>
+            {categories.map((category) => (
+                <h2 key={category}>{category}</h2>
+            ))
+            }
+        </div>
     </div>
   )
 }
