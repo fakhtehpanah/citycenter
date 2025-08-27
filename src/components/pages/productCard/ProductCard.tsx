@@ -17,7 +17,7 @@ function ProductCard({ product }: ProductCardProps) {
     <div className="flex flex-col items-center gap-2 bg-white border rounded-lg shadow hover:shadow-lg transition p-4">
       <div className="">
         <img
-          src='/food.jpg'
+          src='/food.JPG'
           className="rounded"
         />
       </div>
