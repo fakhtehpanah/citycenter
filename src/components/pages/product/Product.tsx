@@ -2,10 +2,19 @@ import { getCategories, getProductsByCategory, getProductsItems } from '@/compon
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../productCard/ProductCard';
 
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+}
+
+
 function Product() {
-    // const [products, setProducts] = useState<string[]>([]);
-    const [categories, setCategories] = useState([]);
-    const [productByCategory, setProductByCategory] = useState([]);
+    const [categories, setCategories] = useState<string[]>([]);
+    const [productByCategory, setProductByCategory] = useState<Record<string, Product[]>>({});
 
     useEffect(() => {
             const fetchData = async () => {
@@ -13,7 +22,7 @@ function Product() {
                     const categoriesData = await getCategories();
                     setCategories(categoriesData);
 
-                    let temp = {};
+                    const temp: Record<string, Product[]> = {};
                     
                     for (const category of categoriesData) {
                         const productData = await getProductsByCategory(category);
