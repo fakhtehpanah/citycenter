@@ -1,9 +1,26 @@
 // components/Header.tsx
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      const target = e.target as Node;
+      if (menuRef.current && !menuRef.current.contains(target)) {
+            setMenuOpen(false)
+      }
+    }
+      document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+          document.removeEventListener('mousedown', handleClickOutside);
+        };
+  }, [])
+
+
 
   return (
     <header className="bg-white shadow-sm">
@@ -101,9 +118,9 @@ export default function Header() {
           </div>
 
           {/* Mobile Nav */}
-          <nav className="flex flex-col space-y-2 text-gray-600 font-medium">
-            <Link href="/">Home</Link>
-            <Link href="/all-products">Products</Link>
+          <nav  ref={menuRef} className="flex flex-col space-y-2 text-gray-600 font-medium">
+            <Link onClick={() => setMenuOpen(false)} href="/">Home</Link>
+            <Link onClick={() => setMenuOpen(false)} href="/all-products">Products</Link>
             <Link href="/">About</Link>
             <Link href="/">Contact</Link>
           </nav>
