@@ -39,7 +39,7 @@ export default function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-6 text-gray-600 font-medium">
           <Link href="/">Home</Link>
-          <Link href="/">Products</Link>
+          <Link href="/all-products">Products</Link>
           <Link href="/">About</Link>
           <Link href="/">Contact</Link>
         </nav>
@@ -103,7 +103,7 @@ export default function Header() {
           {/* Mobile Nav */}
           <nav className="flex flex-col space-y-2 text-gray-600 font-medium">
             <Link href="/">Home</Link>
-            <Link href="/">Products</Link>
+            <Link href="/all-products">Products</Link>
             <Link href="/">About</Link>
             <Link href="/">Contact</Link>
           </nav>
