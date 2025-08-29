@@ -1,11 +1,19 @@
 // components/Header.tsx
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { getProductsByCategory } from "../api/product";
 
-export default function Header() {
+export default function Header(setProductByCategory) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [search, setSearch] = useState('');
 
   const menuRef = useRef<HTMLDivElement>(null);
+
+  const handleSearch = async () => {
+    if (!search) return;
+    const products = await getProductsByCategory(search);
+    setProductByCategory(products);
+  }
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -33,6 +41,8 @@ export default function Header() {
         {/* Search Box (hidden on small, visible on md+) */}
         <div className="relative w-1/3 hidden md:block">
           <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
             type="text"
             placeholder="Search products..."
             className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 outline-none transition"
@@ -51,6 +61,7 @@ export default function Header() {
               d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
             />
           </svg>
+          <button onClick={handleSearch}>go</button>
         </div>
 
         {/* Desktop Navigation */}
@@ -93,7 +104,7 @@ export default function Header() {
 
       {/* Mobile Dropdown */}
       {menuOpen && (
-        <div className="md:hidden px-4 pb-4 space-y-4">
+        <div ref={menuRef} className="md:hidden px-4 pb-4 space-y-4">
           {/* Search on mobile */}
           <div className="relative">
             <input
@@ -118,7 +129,7 @@ export default function Header() {
           </div>
 
           {/* Mobile Nav */}
-          <nav  ref={menuRef} className="flex flex-col space-y-2 text-gray-600 font-medium">
+          <nav className="flex flex-col space-y-2 text-gray-600 font-medium">
             <Link onClick={() => setMenuOpen(false)} href="/">Home</Link>
             <Link onClick={() => setMenuOpen(false)} href="/all-products">Products</Link>
             <Link href="/">About</Link>

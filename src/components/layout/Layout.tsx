@@ -7,10 +7,10 @@ interface Props {
   children: ReactNode;
 }
 
-export default function Layout({ children }: Props) {
+export default function Layout({ children, setProductByCategory }: Props) {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      <Header setProductByCategory={setProductByCategory}/>
       <main className="flex-1">{children}</main>
       <Footer />
     </div>
