@@ -12,7 +12,6 @@ export const getCategories = async () => {
     );
     if (!res.ok) throw new Error ('failed');
     const data = await res.json();
-    console.log(data)
     return data;
 }
 export const getProductsByCategory = async (category: string) => {

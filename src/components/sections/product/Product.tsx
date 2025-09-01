@@ -2,6 +2,7 @@ import { getCategories, getProductsByCategory, getProductsItems } from '@/compon
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../productCard/ProductCard';
 import Header from '@/components/layout/Header';
+import Layout from '@/components/layout/Layout';
 
 interface Product {
   id: number;
@@ -13,7 +14,7 @@ interface Product {
 }
 
 
-function Product() {
+function Product({products}) {
     const [categories, setCategories] = useState<string[]>([]);
     const [productByCategory, setProductByCategory] = useState<Record<string, Product[]>>({});
 
@@ -52,6 +53,11 @@ function Product() {
               ))}
             </div>
           </section>
+        ))}
+      </div>
+      <div className='p-5 bg-red-400'>
+        {products?.map((p) => (
+          <ProductCard key={p.id} product={p}/>
         ))}
       </div>
 

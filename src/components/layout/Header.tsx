@@ -1,21 +1,39 @@
 // components/Header.tsx
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { getProductsByCategory } from "../api/product";
+import { getCategories, getProductsByCategory } from "../api/product";
 
-export default function Header(setProductByCategory) {
+interface HeaderProps {
+  setCategory?: (products: any[]) => void;
+}
+
+export default function Header({categories = [], onSearch}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [search, setSearch] = useState('');
 
-  const menuRef = useRef<HTMLDivElement>(null);
+  const handleKeyDown = (e) => {
+    if (categories.length > 0) {
+      const matchedCategory = categories.find(
+        (cat) => cat.toLowerCase() === search.trim().toLowerCase()
+      );
+      if (matchedCategory) {
+        onSearch(matchedCategory);
+        console.log(matchedCategory)
+      } else {
+        console.log('not matched')
+      }
 
-  const handleSearch = async () => {
-    if (!search) return;
-    const products = await getProductsByCategory(search);
-    setProductByCategory(products);
+
+    }
+
   }
 
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  
+
   useEffect(() => {
+
     function handleClickOutside(e: MouseEvent) {
       const target = e.target as Node;
       if (menuRef.current && !menuRef.current.contains(target)) {
@@ -26,7 +44,9 @@ export default function Header(setProductByCategory) {
         return () => {
           document.removeEventListener('mousedown', handleClickOutside);
         };
-  }, [])
+  }, []);
+
+  
 
 
 
@@ -43,6 +63,7 @@ export default function Header(setProductByCategory) {
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            onKeyDown={handleKeyDown}
             type="text"
             placeholder="Search products..."
             className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 outline-none transition"
@@ -61,7 +82,7 @@ export default function Header(setProductByCategory) {
               d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
             />
           </svg>
-          <button onClick={handleSearch}>go</button>
+          {/* <button onClick={handleSearch}>go</button> */}
         </div>
 
         {/* Desktop Navigation */}

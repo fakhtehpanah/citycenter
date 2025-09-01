@@ -12,7 +12,7 @@ interface ProductCardProps {
   };
 }
 
-function ProductCard({ product }: ProductCardProps) {
+function ProductCard({ product, p }) {
   return (
     <div className="flex flex-col items-center gap-2 bg-white border border-green-700 rounded-lg shadow hover:shadow-lg transition p-4">
       <div className="">
