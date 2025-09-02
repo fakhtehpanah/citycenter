@@ -1,14 +1,9 @@
 // components/Header.tsx
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { Product } from "@/types/types";
 import { useCard } from "@/context/CardContext";
 
-interface HeaderProps {
-  cardCount: number;
-}
-
-export default function Header({cardCount}: HeaderProps) {
+export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [search, setSearch] = useState('');
 

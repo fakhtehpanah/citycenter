@@ -1,9 +1,7 @@
 // components/Layout.tsx
-import React, { isValidElement, ReactElement, ReactNode, useEffect, useState } from "react";
+import React, { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import { getCategories, getProductsByCategory } from "../api/product";
-import { Product } from "@/types/types";
 import { CardProvider } from "@/context/CardContext";
 
 interface LayoutProps {

@@ -1,12 +1,10 @@
 import { useCard } from '@/context/CardContext';
 import { Product } from '@/types/types';
-import Image from 'next/image';
 import React from 'react';
 
 
 export interface ProductCardProps {
   product: Product;
-  onAddToCard: (product: Product) => void;
 }
 
 function ProductCard({ product }: ProductCardProps) {
