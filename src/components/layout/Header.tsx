@@ -88,6 +88,7 @@ export default function Header() {
           <Link href="/all-products">Products</Link>
           <Link href="/">About</Link>
           <Link href="/">Contact</Link>
+          <Link href="/login-page">Login</Link>
           <div>{card.length}</div>
         </nav>
 
