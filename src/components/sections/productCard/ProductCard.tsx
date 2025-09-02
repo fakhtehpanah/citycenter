@@ -1,18 +1,18 @@
+import { useCard } from '@/context/CardContext';
+import { Product } from '@/types/types';
 import Image from 'next/image';
 import React from 'react';
 
-interface ProductCardProps {
-  product: {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    category: string;
-    image: string;
-  };
+
+export interface ProductCardProps {
+  product: Product;
+  onAddToCard: (product: Product) => void;
 }
 
-function ProductCard({ product, p }) {
+function ProductCard({ product }: ProductCardProps) {
+
+  const {addToCard} = useCard();
+
   return (
     <div className="flex flex-col items-center gap-2 bg-white border border-green-700 rounded-lg shadow hover:shadow-lg transition p-4">
       <div className="">
@@ -24,7 +24,7 @@ function ProductCard({ product, p }) {
       <h2 className="text-sm font-semibold text-center line-clamp-2">{product.title}</h2>
       <p className="text-green-700 font-bold">${product.price}</p>
       <p className="text-gray-500 text-xs capitalize">{product.category}</p>
-      <button className='border p-2 border-green-700 rounded-lg hover:bg-green-700 hover:text-white'>add to Card</button>
+      <button onClick={() => addToCard(product)} className='border p-2 border-green-700 rounded-lg hover:bg-green-700 hover:text-white'>add to Card</button>
     </div>
   );
 }

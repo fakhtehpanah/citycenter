@@ -1,20 +1,16 @@
-import { getCategories, getProductsByCategory, getProductsItems } from '@/components/api/product';
+import { getCategories, getProductsByCategory } from '@/components/api/product';
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../productCard/ProductCard';
-import Header from '@/components/layout/Header';
-import Layout from '@/components/layout/Layout';
+import type { Product } from '@/types/types';
 
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-}
+// interface ProductProps {
+//   product: Product;
+//   onAddToCard: (product: Product) => void;
+
+// }
 
 
-function Product({products}) {
+function Product() {
     const [categories, setCategories] = useState<string[]>([]);
     const [productByCategory, setProductByCategory] = useState<Record<string, Product[]>>({});
 
@@ -38,7 +34,8 @@ function Product({products}) {
 
             }
             fetchData();
-    }, [])
+    }, []);
+
     
   return (
     <div>
@@ -55,11 +52,11 @@ function Product({products}) {
           </section>
         ))}
       </div>
-      <div className='p-5 bg-red-400'>
+      {/* <div className='p-5 bg-red-400'>
         {products?.map((p) => (
           <ProductCard key={p.id} product={p}/>
         ))}
-      </div>
+      </div> */}
 
     </div>
 

@@ -1,38 +1,44 @@
 // components/Layout.tsx
-import { ReactNode, useEffect, useState } from "react";
+import React, { isValidElement, ReactElement, ReactNode, useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { getCategories, getProductsByCategory } from "../api/product";
+import { Product } from "@/types/types";
+import { CardProvider } from "@/context/CardContext";
 
-interface Props {
+interface LayoutProps {
   children: ReactNode;
-  categories: string;
 }
 
-export default function Layout({ children}: Props) {
+export default function Layout({ children}: LayoutProps) {
 
-  const [categories, setCategories] = useState<any[]>([]);
-  const [products, setProducts] = useState<any[]>([]);
+  // const [categories, setCategories] = useState<any[]>([]);
+  // const [products, setProducts] = useState<any[]>([]);
 
-  useEffect(() => {
-    getCategories().then(data => setCategories(data));
-  }, [])
+  // useEffect(() => {
+  //   getCategories().then(data => setCategories(data));
+  // }, [])
 
-  const handleSearch = async (category) => {
-    try {
-      const result = await getProductsByCategory(category);
-      setProducts(result);
-    } catch (err) {
-      console.error(err);
-      setProducts([]);
-    }
-    console.log(products)
-  }
+  // const handleSearch = async (category) => {
+  //   try {
+  //     const result = await getProductsByCategory(category);
+  //     setProducts(result);
+  //   } catch (err) {
+  //     console.error(err);
+  //     setProducts([]);
+  //   }
+  //   console.log(products)
+  // }
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header categories={categories} onSearch={handleSearch} />
-      <main products={products} className="flex-1">{children}</main>
+    <CardProvider>
+      <div className="flex flex-col min-h-screen">
+      <Header />
+      <main  className="flex-1">
+        {children}              
+      </main>
       <Footer />
     </div>
+    </CardProvider>
+    
   );
 }

@@ -1,32 +1,35 @@
 // components/Header.tsx
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { getCategories, getProductsByCategory } from "../api/product";
+import { Product } from "@/types/types";
+import { useCard } from "@/context/CardContext";
 
 interface HeaderProps {
-  setCategory?: (products: any[]) => void;
+  cardCount: number;
 }
 
-export default function Header({categories = [], onSearch}) {
+export default function Header({cardCount}: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [search, setSearch] = useState('');
 
-  const handleKeyDown = (e) => {
-    if (categories.length > 0) {
-      const matchedCategory = categories.find(
-        (cat) => cat.toLowerCase() === search.trim().toLowerCase()
-      );
-      if (matchedCategory) {
-        onSearch(matchedCategory);
-        console.log(matchedCategory)
-      } else {
-        console.log('not matched')
-      }
+  const {card} = useCard()
+
+  // const handleKeyDown = (e) => {
+  //   if (categories.length > 0) {
+  //     const matchedCategory = categories.find(
+  //       (cat) => cat.toLowerCase() === search.trim().toLowerCase()
+  //     );
+  //     if (matchedCategory) {
+  //       onSearch(matchedCategory);
+  //       console.log(matchedCategory)
+  //     } else {
+  //       console.log('not matched')
+  //     }
 
 
-    }
+  //   }
 
-  }
+  // }
 
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -52,7 +55,7 @@ export default function Header({categories = [], onSearch}) {
 
   return (
     <header className="bg-white shadow-sm">
-      <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
+      <div className="max-w-7xl  mx-auto flex justify-between items-center p-4">
         {/* Logo */}
         <Link href="/">
           <h1 className="text-xl font-semibold text-gray-800">ShopClassic</h1>
@@ -63,7 +66,6 @@ export default function Header({categories = [], onSearch}) {
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            onKeyDown={handleKeyDown}
             type="text"
             placeholder="Search products..."
             className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 outline-none transition"
@@ -91,6 +93,7 @@ export default function Header({categories = [], onSearch}) {
           <Link href="/all-products">Products</Link>
           <Link href="/">About</Link>
           <Link href="/">Contact</Link>
+          <div>{card.length}</div>
         </nav>
 
         {/* Mobile Menu Button */}
