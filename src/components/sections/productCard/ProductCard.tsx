@@ -1,5 +1,6 @@
 import { useCard } from '@/context/CardContext';
 import { Product } from '@/types/types';
+import Link from 'next/link';
 import React from 'react';
 
 
@@ -22,7 +23,9 @@ function ProductCard({ product }: ProductCardProps) {
       <h2 className="text-sm font-semibold text-center line-clamp-2">{product.title}</h2>
       <p className="text-green-700 font-bold">${product.price}</p>
       <p className="text-gray-500 text-xs capitalize">{product.category}</p>
-      <button onClick={() => addToCard(product)} className='border p-2 border-green-700 rounded-lg hover:bg-green-700 hover:text-white'>add to Card</button>
+      <Link href='/login-page'>
+          <button onClick={() => addToCard(product)} className='border cursor-pointer p-2 border-green-700 rounded-lg hover:bg-green-700 hover:text-white'>add to Card</button>
+      </Link>
     </div>
   );
 }
