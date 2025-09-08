@@ -1,27 +1,42 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
 import { Product } from "@/types/types";
+import React, { createContext, useContext, useState, ReactNode } from "react";
+// import { Product } from "@/types/types";
+// import Product from "@/components/sections/product/Product";
 
 interface CardContextType {
   card: Product[];
   addToCard: (product: Product) => void;
-  removeFromCard: (id: number) => void;
+  removeFromCard: (product: Product) => void;
+  deletedItem: Product | undefined;
 }
 
 const CardContext = createContext<CardContextType | undefined>(undefined);
 
 export const CardProvider = ({ children }: { children: ReactNode }) => {
   const [card, setCard] = useState<Product[]>([]);
+  const [deletedItem, setDeletedItem] = useState<Product>();
 
   const addToCard = (product: Product) => {
     setCard(prev => [...prev, product]);
-    console.log("Cart:", [...card, product]);
+    console.log("Card:", [...card, product]);
   };
-  const removeFromCard = (id: number) => {
-    setCard((prev) => prev.filter((item) =>item.id !== id));
+
+  const removeFromCard = (product: Product) => {
+    setCard((prev) => {
+      const index = prev.findIndex(item => item.id === product.id );
+      if (index !== -1) {
+        const newItem = [...prev];
+        newItem.splice(index, 1);
+        setDeletedItem(product);
+        return newItem;
+      }
+      return prev;
+    }
+  );
   }
 
   return (
-    <CardContext.Provider value={{ card, addToCard, removeFromCard }}>
+    <CardContext.Provider value={{ card, addToCard, removeFromCard, deletedItem }}>
       {children}
     </CardContext.Provider>
   );
@@ -29,6 +44,6 @@ export const CardProvider = ({ children }: { children: ReactNode }) => {
 
 export const useCard = () => {
   const context = useContext(CardContext);
-  if (!context) throw new Error("useCart must be used within CartProvider");
+  if (!context) throw new Error("useCard must be used within CardProvider");
   return context;
 };

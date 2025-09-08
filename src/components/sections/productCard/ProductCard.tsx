@@ -23,9 +23,9 @@ function ProductCard({ product }: ProductCardProps) {
       <h2 className="text-sm font-semibold text-center line-clamp-2">{product.title}</h2>
       <p className="text-green-700 font-bold">${product.price}</p>
       <p className="text-gray-500 text-xs capitalize">{product.category}</p>
-      <Link href='/login-page'>
+      <div >
           <button onClick={() => addToCard(product)} className='border cursor-pointer p-2 border-green-700 rounded-lg hover:bg-green-700 hover:text-white'>add to Card</button>
-      </Link>
+      </div>
     </div>
   );
 }
