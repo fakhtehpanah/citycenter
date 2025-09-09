@@ -8,6 +8,7 @@ interface CardContextType {
   addToCard: (product: Product) => void;
   removeFromCard: (product: Product) => void;
   deletedItem: Product | undefined;
+  handleClickProduct: (product: Product) => void;
 }
 
 const CardContext = createContext<CardContextType | undefined>(undefined);
@@ -35,8 +36,13 @@ export const CardProvider = ({ children }: { children: ReactNode }) => {
   );
   }
 
+    const handleClickProduct = (product: Product) => {
+    console.log(product.title)
+  }
+
+
   return (
-    <CardContext.Provider value={{ card, addToCard, removeFromCard, deletedItem }}>
+    <CardContext.Provider value={{ card, addToCard, removeFromCard, deletedItem, handleClickProduct}}>
       {children}
     </CardContext.Provider>
   );
