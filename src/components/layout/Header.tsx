@@ -27,6 +27,8 @@ export default function Header() {
   // }
 
   const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
 
   
 
@@ -34,15 +36,23 @@ export default function Header() {
 
     function handleClickOutside(e: MouseEvent) {
       const target = e.target as Node;
-      if (menuRef.current && !menuRef.current.contains(target)) {
-            setMenuOpen(false)
+
+      if (!menuOpen) return;
+
+
+      if (
+        (menuRef.current && menuRef.current.contains(target)) ||
+        (buttonRef.current && buttonRef.current.contains(target))
+      ) {
+        return;
       }
+      setMenuOpen(false);
     }
       document.addEventListener('mousedown', handleClickOutside);
         return () => {
           document.removeEventListener('mousedown', handleClickOutside);
         };
-  }, []);
+  }, [menuOpen]);
 
   
 
@@ -92,10 +102,15 @@ export default function Header() {
           <div>{card.length}</div>
         </nav>
 
+
         {/* Mobile Menu Button */}
-        <button
+        <button ref={buttonRef}
           className="md:hidden p-2 rounded-lg hover:bg-gray-100"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => {
+            setMenuOpen(prev => !prev)
+
+          }
+          }
         >
           <svg
             className="w-6 h-6 text-gray-700"
@@ -110,7 +125,7 @@ export default function Header() {
                 strokeWidth="2"
                 d="M6 18L18 6M6 6l12 12"
               />
-            ) : (
+            ) : (                          
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -124,7 +139,7 @@ export default function Header() {
 
       {/* Mobile Dropdown */}
       {menuOpen && (
-        <div ref={menuRef} className="md:hidden px-4 pb-4 space-y-4">
+        <div ref={menuRef}  className="md:hidden px-4 pb-4 space-y-4">
           {/* Search on mobile */}
           <div className="relative">
             <input
@@ -152,8 +167,10 @@ export default function Header() {
           <nav className="flex flex-col space-y-2 text-gray-600 font-medium">
             <Link onClick={() => setMenuOpen(false)} href="/">Home</Link>
             <Link onClick={() => setMenuOpen(false)} href="/all-products">Products</Link>
-            <Link href="/">About</Link>
-            <Link href="/">Contact</Link>
+            <Link onClick={() => setMenuOpen(false)} href="/">About</Link>
+            <Link onClick={() => setMenuOpen(false)} href="/">Contact</Link>
+            <Link onClick={() => setMenuOpen(false)} href="/login-page">Login</Link>
+
           </nav>
         </div>
       )}
