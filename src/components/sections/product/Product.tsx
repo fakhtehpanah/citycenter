@@ -41,10 +41,10 @@ function Product() {
       {/* <Header setProductByCategory={setProductByCategory} /> */}
       <div className="p-5 ">
         {categories.map((cat) => (
-          <section key={cat} className="mb-8">
-            <h2 className="text-xl font-bold mb-4 capitalize">{cat}</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-              {productByCategory[cat]?.map((product, idx) => (
+          <section key={cat} className="py-5 flex flex-col gap-y-5">
+            <h2 className="text-xl font-bold  capitalize">{cat}</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+              {productByCategory[cat]?.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>

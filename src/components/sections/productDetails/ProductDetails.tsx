@@ -24,11 +24,13 @@ export default function ProductDetails() {
   if (!product) return <div>Loading...</div>;
 
   return (
-    <div className="p-5">
-      <h1 className="text-2xl font-bold">{product.title}</h1>
-      <p className="text-green-700 font-bold">${product.price}</p>
-      <p className="text-gray-500 capitalize">{product.category}</p>
-      <img src="/food.JPG" alt={product.title} className="rounded mt-4" />
-    </div>
+      <div className="p-5 my-10 mx-5 flex flex-col lg:items-center gap-y-5  lg:p-10 ">
+        <h1 className="text-2xl  font-bold">{product.title}</h1>
+        <p className="text-green-700 font-bold">${product.price}</p>
+        <p className="text-gray-500 capitalize">{product.category}</p>
+        <img src="/food.JPG" alt={product.title} className="rounded lg:w-1/3" />
+      </div>
+
+
   );
 }

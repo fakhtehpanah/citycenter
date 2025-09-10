@@ -73,7 +73,7 @@ export default function Header() {
             onChange={(e) => setSearch(e.target.value)}
             type="text"
             placeholder="Search products..."
-            className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 outline-none transition"
+            className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:border-green-700 focus:ring  outline-none transition"
           />
           <svg
             className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
@@ -93,12 +93,12 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6 text-gray-600 font-medium">
-          <Link href="/">Home</Link>
-          <Link href="/all-products">Products</Link>
-          <Link href="/">About</Link>
-          <Link href="/">Contact</Link>
-          <Link href="/login-page">Login</Link>
+        <nav className="hidden md:flex space-x-6 text-gray-600  font-medium">
+          <Link className="hover:text-green-700" href="/">Home</Link>
+          <Link className="hover:text-green-700" href="/all-products">Products</Link>
+          <Link className="hover:text-green-700" href="/">About</Link>
+          <Link className="hover:text-green-700" href="/">Contact</Link>
+          <Link className="hover:text-green-700" href="/login-page">Login</Link>
           <div>{card.length}</div>
         </nav>
 
@@ -145,7 +145,7 @@ export default function Header() {
             <input
               type="text"
               placeholder="Search products..."
-              className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 outline-none transition"
+              className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:border-green-700 focus:ring outline-none transition"
             />
             <svg
               className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
@@ -165,11 +165,11 @@ export default function Header() {
 
           {/* Mobile Nav */}
           <nav className="flex flex-col space-y-2 text-gray-600 font-medium">
-            <Link onClick={() => setMenuOpen(false)} href="/">Home</Link>
-            <Link onClick={() => setMenuOpen(false)} href="/all-products">Products</Link>
-            <Link onClick={() => setMenuOpen(false)} href="/">About</Link>
-            <Link onClick={() => setMenuOpen(false)} href="/">Contact</Link>
-            <Link onClick={() => setMenuOpen(false)} href="/login-page">Login</Link>
+            <Link className="hover:text-green-700" onClick={() => setMenuOpen(false)} href="/">Home</Link>
+            <Link className="hover:text-green-700" onClick={() => setMenuOpen(false)} href="/all-products">Products</Link>
+            <Link className="hover:text-green-700" onClick={() => setMenuOpen(false)} href="/">About</Link>
+            <Link className="hover:text-green-700" onClick={() => setMenuOpen(false)} href="/">Contact</Link>
+            <Link className="hover:text-green-700" onClick={() => setMenuOpen(false)} href="/login-page">Login</Link>
 
           </nav>
         </div>
