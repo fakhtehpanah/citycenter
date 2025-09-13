@@ -2,6 +2,8 @@ import { getCategories, getProductsByCategory } from '@/components/api/product';
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../productCard/ProductCard';
 import type { Product } from '@/types/types';
+import Landing from '../landing/Landing';
+import LandingPage from '../landing/Landing';
 
 // interface ProductProps {
 //   product: Product;
@@ -39,6 +41,7 @@ function Product() {
   return (
     <div>
       {/* <Header setProductByCategory={setProductByCategory} /> */}
+      <LandingPage/>
       <div className="p-5 ">
         {categories.map((cat) => (
           <section key={cat} className="py-5 flex flex-col gap-y-5">
