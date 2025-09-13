@@ -27,7 +27,7 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-purple-100 overflow-hidden">
+    <div className="relative min-h-screen flex flex-col items-center justify-center bg-purple-50 overflow-hidden">
       <svg
         className="absolute top-5 right-10 w-96 h-96 animate-blob animation-delay-2000 transition-all duration-900 hover:scale-125"
         viewBox="0 0 200 200"
