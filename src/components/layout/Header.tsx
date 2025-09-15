@@ -60,23 +60,23 @@ export default function Header() {
 
   return (
     <header className="bg-white shadow-sm">
-      <div className="max-w-7xl  mx-auto flex justify-between items-center p-4">
+      <div className="max-w-7xl  mx-auto flex border-b justify-between items-center p-4">
         {/* Logo */}
         <Link href="/">
           <h1 className="text-xl font-semibold text-gray-800">ShopClassic</h1>
         </Link>
 
         {/* Search Box (hidden on small, visible on md+) */}
-        <div className="relative w-1/3 hidden md:block">
+        <div className="relative w-1/3  hidden md:block" >
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             type="text"
             placeholder="Search products..."
-            className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:border-green-700 focus:ring  outline-none transition"
+            className="w-full pl-10 pr-4 py-2  rounded-lg border   outline-none transition"
           />
           <svg
-            className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+            className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 "
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -93,19 +93,19 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6 text-gray-600  font-medium">
-          <Link className="hover:text-green-700" href="/">Home</Link>
-          <Link className="hover:text-green-700" href="/all-products">Products</Link>
-          <Link className="hover:text-green-700" href="/">About</Link>
-          <Link className="hover:text-green-700" href="/">Contact</Link>
-          <Link className="hover:text-green-700" href="/login-page">Login</Link>
+        <nav className="hidden md:flex space-x-6  font-medium">
+          <Link className="" href="/">Home</Link>
+          <Link className="" href="/all-products">Products</Link>
+          <Link className="" href="/">About</Link>
+          <Link className="" href="/">Contact</Link>
+          <Link className="" href="/login-page">Login</Link>
           <div>{card.length}</div>
         </nav>
 
 
         {/* Mobile Menu Button */}
         <button ref={buttonRef}
-          className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+          className="md:hidden p-2 rounded-lg  "
           onClick={() => {
             setMenuOpen(prev => !prev)
 
@@ -113,7 +113,7 @@ export default function Header() {
           }
         >
           <svg
-            className="w-6 h-6 text-gray-700"
+            className="w-6 h-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -138,17 +138,19 @@ export default function Header() {
       </div>
 
       {/* Mobile Dropdown */}
-      {menuOpen && (
-        <div ref={menuRef}  className="md:hidden px-4 pb-4 space-y-4">
+        <div ref={menuRef}  className={`md:hidden overflow-hidden transition-[max-height] duration-500 ease-in-out  ${
+    menuOpen ? "max-h-96 opacity-100 p-4" : "max-h-0 opacity-0"
+  } space-y-4`}>
           {/* Search on mobile */}
-          <div className="relative">
+          <div className="relative animate-pulse">
             <input
               type="text"
               placeholder="Search products..."
-              className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:border-green-700 focus:ring outline-none transition"
+              className="w-full pl-10 pr-4 py-2 transition-all duration-700  rounded-lg border   outline-none "
             />
+         
             <svg
-              className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+              className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 "
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -164,16 +166,16 @@ export default function Header() {
           </div>
 
           {/* Mobile Nav */}
-          <nav className="flex flex-col space-y-2 text-gray-600 font-medium">
-            <Link className="hover:text-green-700" onClick={() => setMenuOpen(false)} href="/">Home</Link>
-            <Link className="hover:text-green-700" onClick={() => setMenuOpen(false)} href="/all-products">Products</Link>
-            <Link className="hover:text-green-700" onClick={() => setMenuOpen(false)} href="/">About</Link>
-            <Link className="hover:text-green-700" onClick={() => setMenuOpen(false)} href="/">Contact</Link>
-            <Link className="hover:text-green-700" onClick={() => setMenuOpen(false)} href="/login-page">Login</Link>
+          <nav className="flex flex-col space-y-2 font-medium">
+            <Link className="" onClick={() => setMenuOpen(false)} href="/">Home</Link>
+            <Link className="" onClick={() => setMenuOpen(false)} href="/all-products">Products</Link>
+            <Link className="" onClick={() => setMenuOpen(false)} href="/">About</Link>
+            <Link className="" onClick={() => setMenuOpen(false)} href="/">Contact</Link>
+            <Link className="" onClick={() => setMenuOpen(false)} href="/login-page">Login</Link>
 
           </nav>
         </div>
-      )}
+      
     </header>
   );
 }
