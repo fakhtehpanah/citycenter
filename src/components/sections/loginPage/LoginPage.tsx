@@ -12,10 +12,10 @@ export default function LoginPage() {
   };
 
   return (
-    <div  className="relative py-10 min-h-screen flex flex-col lg:flex-row-reverse items-center justify-center  gap-10">
+    <div  className="relative  min-h-screen flex flex-col lg:flex-row-reverse items-center justify-center  gap-10">
       {/* <svg className="absolute top-0 right-0 -z-10 animate-blob animation-delay-2000 " viewBox="0 0 100 100" ><path fill="rgba(244,232,255,1)" d="M84.5,54.5Q84,59,86.5,66.5Q89,74,80.5,73.5Q72,73,70,79Q68,85,62.5,84.5Q57,84,52.5,83Q48,82,40.5,89Q33,96,30,89Q27,82,20.5,80.5Q14,79,17.5,71Q21,63,13,59.5Q5,56,8.5,50.5Q12,45,13,39.5Q14,34,17,30Q20,26,25.5,24.5Q31,23,32.5,13.5Q34,4,40.5,5Q47,6,52.5,9.5Q58,13,62.5,15Q67,17,73.5,17Q80,17,84,22Q88,27,92,32Q96,37,90.5,43.5Q85,50,84.5,54.5Z"/></svg> */}
       
-      <div className="w-full max-w-md flex flex-col gap-y-4 border bg-white rounded-2xl shadow-lg py-2 px-4 lg:p-8">
+      <div className="w-full max-w-md flex flex-col gap-y-4 border bg-white rounded-2xl shadow-lg p-5 lg:p-8">
         <h2 className="text-3xl font-bold text-center text-gray-800 py-2">
           Login
         </h2>
@@ -79,8 +79,9 @@ export default function LoginPage() {
           alt="Login Illustration"
         />
       </div> */}
-      <img src="/password.svg" className="absolute left-0 bottom-0 -z-10 " width={300} alt="" />
+      <img src="/password.svg" className="absolute top-0 right-0 lg:left-0 -z-10 " width={300} alt="" />
       {/* <svg className="absolute -z-20 left-0 animate-blob " viewBox="0 0 100 100" ><path fill="rgba(222,242,255,1)" d="M82,61Q84,72,76.5,82Q69,92,56.5,93.5Q44,95,35.5,85.5Q27,76,19,69Q11,62,15,51.5Q19,41,24,33Q29,25,36.5,17.5Q44,10,56,10Q68,10,78.5,17.5Q89,25,84.5,37.5Q80,50,82,61Z"/></svg> */}
+            <img src="/log_in.svg" className="absolute lg:bottom-0 lg:right-0 -z-10 " width={700} alt="" />
 
       <style jsx>{`
         .animate-blob {
