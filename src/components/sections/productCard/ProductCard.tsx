@@ -14,7 +14,7 @@ function ProductCard({ product }: ProductCardProps) {
   const {addToCard} = useCard();
 
   return (
-        <div className="flex flex-col items-center gap-y-2 bg-white border border-green-700 rounded-lg shadow hover:shadow-lg transition p-2">
+        <div className="flex flex-col items-center gap-y-2 p-2 rounded shadow hover:shadow-lg transition">
           <Link href={`/product-details/${product.id}`}>
             <div className='flex flex-col gap-y-2'>
                 <img
@@ -22,12 +22,12 @@ function ProductCard({ product }: ProductCardProps) {
                 className="rounded"
               />
                 <h2 className="text-sm font-semibold text-center line-clamp-2">{product.title}</h2>
-                <p className="text-green-700 font-bold">${product.price}</p>
+                <p className=" font-bold">${product.price}</p>
                 <p className="text-gray-500 text-xs capitalize">{product.category}</p>
             </div>
           </Link>
           <div >
-              <button onClick={() => addToCard(product)}  className='border cursor-pointer p-2 border-green-700 rounded-lg hover:bg-green-700 hover:text-white'>add to Card</button>
+              <button onClick={() => addToCard(product)}  className='border rounded cursor-pointer p-2 '>add to Card</button>
           </div>
         </div>
 
