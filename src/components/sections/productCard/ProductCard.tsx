@@ -14,7 +14,7 @@ function ProductCard({ product }: ProductCardProps) {
   const {addToCard} = useCard();
 
   return (
-        <div className="flex flex-col items-center gap-y-2 p-2 rounded shadow hover:shadow-lg transition">
+        <div className="flex flex-col z-10 items-center gap-y-2 p-2 rounded shadow hover:shadow-lg transition">
           <Link href={`/product-details/${product.id}`}>
             <div className='flex flex-col gap-y-2'>
                 <img
