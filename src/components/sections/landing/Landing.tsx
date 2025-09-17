@@ -27,7 +27,7 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="relative min-h-screen  bg-[#fff0d6]   flex flex-col items-center justify-center  overflow-hidden">
+    <div className="relative min-h-screen border border-dashed border-amber-300   flex flex-col items-center justify-center  overflow-hidden">
 
       <svg className="absolute " viewBox="0 0 50 50" >
         <path fill="rgba(245,158,11,1)" d="M83,61.5Q77,73,67.5,83Q58,93,43,90.5Q28,88,20.5,75.5Q13,63,15,50.5Q17,38,25,29.5Q33,21,45,15.5Q57,10,68,17.5Q79,25,84,37.5Q89,50,83,61.5Z"/>
