@@ -27,8 +27,13 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center bg-purple-50 overflow-hidden">
-      <svg
+    <div className="relative min-h-screen  bg-[#fff0d6]   flex flex-col items-center justify-center  overflow-hidden">
+
+      <svg className="absolute " viewBox="0 0 50 50" >
+        <path fill="rgba(245,158,11,1)" d="M83,61.5Q77,73,67.5,83Q58,93,43,90.5Q28,88,20.5,75.5Q13,63,15,50.5Q17,38,25,29.5Q33,21,45,15.5Q57,10,68,17.5Q79,25,84,37.5Q89,50,83,61.5Z"/>
+      </svg>
+      <img className="absolute w-100 bottom-0 lg:left-0  p-10" src="/Online-Shopping.png" alt="" />
+      {/* <svg
         className="absolute top-5 right-10 w-96 h-96 animate-blob animation-delay-2000 transition-all duration-900 hover:scale-125"
         viewBox="0 0 200 200"
         xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +65,7 @@ export default function LandingPage() {
           d="M27.3,-47.7C39,-40.6,54.4,-40.5,61.3,-33.7C68.2,-26.9,66.7,-13.4,63.4,-1.9C60.1,9.6,55.1,19.3,51.9,32.5C48.6,45.7,47.2,62.5,38.9,64.9C30.5,67.3,15.3,55.3,3.7,48.9C-7.9,42.5,-15.8,41.8,-21.6,37.9C-27.5,34.1,-31.2,27.2,-34.4,20.3C-37.5,13.5,-40,6.7,-47.9,-4.5C-55.7,-15.8,-68.9,-31.6,-69.5,-44.9C-70,-58.2,-58,-68.9,-44.4,-74.9C-30.7,-80.8,-15.3,-81.9,-3.7,-75.4C7.8,-68.9,15.7,-54.9,27.3,-47.7Z"
           transform="translate(100 100)"
         />
-      </svg>
+      </svg> */}
 
       {/* بلاب‌های معلق */}
 
@@ -71,15 +76,15 @@ export default function LandingPage() {
 
       {/* کارت اعداد */}
       <div className="flex gap-10 z-10">
-        <div className="bg-white p-6 rounded-2xl shadow-lg text-center">
+        <div className="bg-white/30 p-6 rounded-2xl shadow-lg backdrop-blur-3xl text-center">
           <p className="text-3xl font-bold text-green-600">{count1}</p>
           <p className="text-gray-500">Happy Customers</p>
         </div>
-        <div className="bg-white p-6 rounded-2xl shadow-lg text-center">
+        <div className="bg-white/30 backdrop-blur-3xl p-6 rounded-2xl shadow-lg text-center">
           <p className="text-3xl font-bold text-blue-600">{count2}</p>
           <p className="text-gray-500">Products Sold</p>
         </div>
-        <div className="bg-white p-6 rounded-2xl shadow-lg text-center">
+        <div className="bg-white/30 backdrop-blur-3xl p-6 rounded-2xl shadow-lg text-center">
           <p className="text-3xl font-bold text-pink-600">{count3}</p>
           <p className="text-gray-500">Orders Delivered</p>
         </div>
@@ -87,7 +92,7 @@ export default function LandingPage() {
 
       <style jsx>{`
         .animate-blob {
-          animation: blob 8s infinite;
+          animation: blob 5s infinite;
         }
         .animation-delay-2000 {
           animation-delay: 2s;
