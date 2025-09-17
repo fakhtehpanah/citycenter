@@ -54,13 +54,13 @@ function Product() {
                     <svg className='absolute  w-100 top-0 right-0 ' viewBox="0 0 50 100" ><path fill="rgba(226,236,254,1)" d="M83,63Q71,76,56,82Q41,88,25,79Q9,70,7.5,49.5Q6,29,24.5,23.5Q43,18,60.5,16.5Q78,15,86.5,32.5Q95,50,83,63Z"/></svg> 
 
         {categories.map((cat, index) => (
-          <section key={cat} className= {`p-5 flex flex-col gap-y-5
+          <section key={cat} className= {`p-4 flex flex-col gap-y-5
             ${ categoryStyles[cat] || "bg-white"}`
           }>
 
             {/* <img className='absolute bottom-0' src="/Shopping-Online-Shopping--Streamline-Bruxelles.png" alt="" /> */}
             <h2 className="text-xl font-bold  capitalize">{cat}</h2>
-            <div className="p-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 border border-dashed border-amber-300">
+            <div className="p-2.5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 border border-dashed border-amber-300">
               {productByCategory[cat]?.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
