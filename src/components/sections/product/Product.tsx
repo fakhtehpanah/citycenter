@@ -5,6 +5,7 @@ import type { Product } from '@/types/types';
 import Landing from '../landing/Landing';
 import LandingPage from '../landing/Landing';
 import Brands from '../brands/Brands';
+import Articles from '../brands/articles/Articles';
 
 // interface ProductProps {
 //   product: Product;
@@ -51,9 +52,9 @@ function Product() {
       {/* <Header setProductByCategory={setProductByCategory} /> */}
       <LandingPage/>
       <Brands/>
-      <div className="relative" >
-                    <svg className='absolute  w-100 bottom-0 right-0 ' viewBox="0 0 50 100" ><path fill="rgba(251,236,255,1)" d="M96.5,58Q96,66,89,70.5Q82,75,76.5,78.5Q71,82,64.5,81.5Q58,81,52.5,84.5Q47,88,39,90.5Q31,93,29,84Q27,75,18.5,73.5Q10,72,12.5,64Q15,56,13.5,50Q12,44,13,37.5Q14,31,17.5,25Q21,19,26,13Q31,7,38.5,4.5Q46,2,53,5.5Q60,9,64.5,15Q69,21,72,25.5Q75,30,81,33.5Q87,37,92,43.5Q97,50,96.5,58Z"/></svg>
-                    <svg className='absolute  w-100 top-0 right-0 ' viewBox="0 0 50 100" ><path fill="rgba(226,236,254,1)" d="M83,63Q71,76,56,82Q41,88,25,79Q9,70,7.5,49.5Q6,29,24.5,23.5Q43,18,60.5,16.5Q78,15,86.5,32.5Q95,50,83,63Z"/></svg> 
+      <div className="relative flex flex-col gap-y-10" >
+        <svg className='absolute  w-100 bottom-0 right-0 ' viewBox="0 0 50 100" ><path fill="rgba(251,236,255,1)" d="M96.5,58Q96,66,89,70.5Q82,75,76.5,78.5Q71,82,64.5,81.5Q58,81,52.5,84.5Q47,88,39,90.5Q31,93,29,84Q27,75,18.5,73.5Q10,72,12.5,64Q15,56,13.5,50Q12,44,13,37.5Q14,31,17.5,25Q21,19,26,13Q31,7,38.5,4.5Q46,2,53,5.5Q60,9,64.5,15Q69,21,72,25.5Q75,30,81,33.5Q87,37,92,43.5Q97,50,96.5,58Z"/></svg>
+        <svg className='absolute  w-100 top-0 right-0 ' viewBox="0 0 50 100" ><path fill="rgba(226,236,254,1)" d="M83,63Q71,76,56,82Q41,88,25,79Q9,70,7.5,49.5Q6,29,24.5,23.5Q43,18,60.5,16.5Q78,15,86.5,32.5Q95,50,83,63Z"/></svg> 
 
         {categories.map((cat, index) => (
           <section key={cat} className= {` p-5 flex flex-col gap-y-5
@@ -74,6 +75,7 @@ function Product() {
           </section>
         ))}
       </div>
+      <Articles/>
       {/* <div className='p-5 bg-red-400'>
         {products?.map((p) => (
           <ProductCard key={p.id} product={p}/>
