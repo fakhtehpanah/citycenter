@@ -32,7 +32,7 @@ export default function LandingPage() {
       <svg className="absolute " viewBox="0 0 50 50" >
         <path fill="rgba(245,158,11,1)" d="M83,61.5Q77,73,67.5,83Q58,93,43,90.5Q28,88,20.5,75.5Q13,63,15,50.5Q17,38,25,29.5Q33,21,45,15.5Q57,10,68,17.5Q79,25,84,37.5Q89,50,83,61.5Z"/>
       </svg>
-      <img className="absolute w-100 bottom-0 lg:left-0  p-10" src="/Online-Shopping.png" alt="" />
+      <img className="absolute w-80 bottom-10 lg:left-5  border border-dashed border-amber-400" src="/Online-Shopping.png" alt="" />
       {/* <svg
         className="absolute top-5 right-10 w-96 h-96 animate-blob animation-delay-2000 transition-all duration-900 hover:scale-125"
         viewBox="0 0 200 200"
