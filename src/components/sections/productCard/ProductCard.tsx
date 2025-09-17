@@ -14,13 +14,13 @@ function ProductCard({ product }: ProductCardProps) {
   const {addToCard} = useCard();
 
   return (
-        <div className="flex flex-col z-10 items-center gap-y-2 p-2 rounded shadow hover:shadow-lg transition">
+        <div className="flex flex-col z-10 items-center gap-y-2 pb-2.5 rounded shadow hover:shadow-lg transition">
           <Link href={`/product-details/${product.id}`}>
-            <div className='flex flex-col gap-y-2'>
-                <img
+           <img
                 src='/food.JPG'
-                className="rounded"
+                className="rounded-t"
               />
+            <div className='flex flex-col gap-y-2 p-2'>
                 <h2 className="text-sm font-semibold text-center line-clamp-2">{product.title}</h2>
                 <p className=" font-bold">${product.price}</p>
                 <p className="text-gray-500 text-xs capitalize">{product.category}</p>
