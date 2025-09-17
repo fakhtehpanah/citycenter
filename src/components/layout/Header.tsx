@@ -59,8 +59,8 @@ export default function Header() {
 
 
   return (
-    <header className="bg-white shadow-sm">
-      <div className="max-w-7xl  mx-auto flex border-b justify-between items-center p-4">
+    <header className="bg-[#fffcf3] shadow-sm">
+      <div className="max-w-7xl  mx-auto flex justify-between items-center p-4">
         {/* Logo */}
         <Link href="/">
           <h1 className="text-xl font-semibold text-gray-800">ShopClassic</h1>
@@ -93,12 +93,12 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6  font-medium">
+        <nav className="hidden md:flex space-x-6 items-center font-medium">
           <Link className="" href="/">Home</Link>
           <Link className="" href="/all-products">Products</Link>
           <Link className="" href="/">About</Link>
           <Link className="" href="/">Contact</Link>
-          <Link className="" href="/login-page">Login</Link>
+          <Link className="bg-black text-white w-auto px-5 py-2.5  rounded hover:border hover:bg-white hover:text-black" href="/login-page">Login</Link>
           <div>{card.length}</div>
         </nav>
 
@@ -166,12 +166,12 @@ export default function Header() {
           </div>
 
           {/* Mobile Nav */}
-          <nav className="flex flex-col space-y-2 font-medium">
+          <nav className="flex flex-col items-center space-y-2 font-medium">
             <Link className="" onClick={() => setMenuOpen(false)} href="/">Home</Link>
             <Link className="" onClick={() => setMenuOpen(false)} href="/all-products">Products</Link>
             <Link className="" onClick={() => setMenuOpen(false)} href="/">About</Link>
             <Link className="" onClick={() => setMenuOpen(false)} href="/">Contact</Link>
-            <Link className="" onClick={() => setMenuOpen(false)} href="/login-page">Login</Link>
+            <Link className="bg-black w-auto px-10 py-2 rounded hover:border hover:bg-white hover:text-black text-white text-center" onClick={() => setMenuOpen(false)} href="/login-page">Login</Link>
 
           </nav>
         </div>
