@@ -5,6 +5,12 @@ export default function LandingPage() {
   const [count2, setCount2] = useState(0);
   const [count3, setCount3] = useState(0);
 
+  const [quote, setQuote] = useState('');
+
+  const handleQuote = () => {
+    console.log(quote)
+  }
+
   // تابع انیمیشن اعداد
   useEffect(() => {
     const interval1 = setInterval(() => {
@@ -27,8 +33,16 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="relative min-h-screen border border-dashed border-amber-300   flex flex-col items-center justify-center  overflow-hidden">
-
+    <div className="relative min-h-screen lg:border lg:border-dashed border-amber-300   flex flex-col items-center justify-center  overflow-hidden">
+      {/* <svg xmlns="http://www.w3.org/2000/svg" version="1.1"  viewBox="0 0 700 700" width="700" height="700"><defs><filter id="nnnoise-filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
+	<feTurbulence type="fractalNoise" baseFrequency="0.102" numOctaves="4" seed="15" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence"></feTurbulence>
+	<feSpecularLighting surfaceScale="15" specularConstant="0.75" specularExponent="20" lighting-color="#7957A8" x="0%" y="0%" width="100%" height="100%" in="turbulence" result="specularLighting">
+    		<feDistantLight azimuth="3" elevation="100"></feDistantLight>
+  	</feSpecularLighting>
+  
+</filter></defs><rect width="700" height="700" fill="transparent"></rect><rect width="700" height="700" fill="#7957a8" filter="url(#nnnoise-filter)"></rect></svg> */}
+      
+      
       <svg className="absolute " viewBox="0 0 50 50" >
         <path fill="rgba(245,158,11,1)" d="M83,61.5Q77,73,67.5,83Q58,93,43,90.5Q28,88,20.5,75.5Q13,63,15,50.5Q17,38,25,29.5Q33,21,45,15.5Q57,10,68,17.5Q79,25,84,37.5Q89,50,83,61.5Z"/>
       </svg>
@@ -89,6 +103,13 @@ export default function LandingPage() {
           <p className="text-gray-500">Orders Delivered</p>
         </div>
       </div>
+
+
+      <div className="flex absolute bottom-0 lg:bottom-10 z-10 bg-white rounded  p-5 flex-col lg:flex-row gap-y-2.5">
+        <input value={quote} onChange={(e)=> setQuote(e.target.value)} type="text" placeholder="Enter your E-mail Address" className=" rounded px-20 lg:px-14 focus:outline-none"/>
+        <button onClick={handleQuote} className="bg-black text-white py-2.5 lg:px-5 rounded">Get a Quote</button>
+      </div>
+      
 
       <style jsx>{`
         .animate-blob {

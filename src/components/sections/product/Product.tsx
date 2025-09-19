@@ -48,7 +48,7 @@ function Product() {
 
     
   return (
-    <div className='bg-[#fff0d6] p-5 flex flex-col gap-y-10'>
+    <div className='bg-[#fff0d6] lg:p-5 flex flex-col gap-y-10'>
       {/* <Header setProductByCategory={setProductByCategory} /> */}
       <LandingPage/>
       <Brands/>
