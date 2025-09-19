@@ -59,7 +59,7 @@ export default function Header() {
 
 
   return (
-    <header className="bg-[#fffcf3] shadow-sm">
+    <header className="bg-[#fff0d6] shadow-sm">
       <div className="max-w-7xl  mx-auto flex justify-between items-center p-4">
         {/* Logo */}
         <Link href="/">
@@ -67,13 +67,13 @@ export default function Header() {
         </Link>
 
         {/* Search Box (hidden on small, visible on md+) */}
-        <div className="relative w-1/3  hidden md:block" >
+        <div className="relative  hidden md:block" >
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             type="text"
             placeholder="Search products..."
-            className="w-full pl-10 pr-4 py-2  rounded-lg border   outline-none transition"
+            className="w-full px-10 py-2  rounded-lg border   outline-none transition"
           />
           <svg
             className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 "
@@ -93,12 +93,12 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6 items-center font-medium">
+        <nav className="hidden md:flex space-x-10 items-center font-medium bg-amber-500/20 rounded-4xl backdrop-blur-2xl shadow px-5">
           <Link className="" href="/">Home</Link>
           <Link className="" href="/all-products">Products</Link>
           <Link className="" href="/">About</Link>
           <Link className="" href="/">Contact</Link>
-          <Link className="bg-black text-white w-auto px-5 py-2.5  rounded hover:border hover:bg-white hover:text-black" href="/login-page">Login</Link>
+          <Link className="bg-black text-white w-auto px-5 py-2.5  rounded-4xl hover:border hover:bg-white hover:text-black" href="/login-page">Login</Link>
           <div>{card.length}</div>
         </nav>
 
