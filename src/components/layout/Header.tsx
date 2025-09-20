@@ -59,8 +59,8 @@ export default function Header() {
 
 
   return (
-    <header className=" sticky top-0 z-50 rounded-b-4xl shadow">
-      <div className="max-w-7xl  text-white rounded-b-4xl bg-black shadow mx-auto flex justify-between items-center p-4">
+    <header className=" sticky top-0 z-50 rounded-b-4xl">
+      <div className="max-w-7xl  text-white rounded-b-4xl shadow bg-black  mx-auto flex justify-between items-center p-4">
         {/* Logo */}
         <Link href="/">
           <h1 className="text-xl font-semibold">ShopClassic</h1>
