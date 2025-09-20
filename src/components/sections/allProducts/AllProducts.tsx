@@ -19,7 +19,7 @@ function AllProduct() {
   }, []);
 
   return (
-    <div className="relative p-10 bg-gradient-to-r from-yellow-50 to-orange-50">
+    <div className="relative p-10 ">
       <svg className="absolute  w-100 bottom-0 right-0 " viewBox="0 0 50 100">
         <path
           fill="rgba(251,236,255,1)"
@@ -27,7 +27,7 @@ function AllProduct() {
         />
       </svg>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 border border-dashed border-amber-300 p-5">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 border-4  border-dashed border-orange-200 p-5">
         {allProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
