@@ -59,8 +59,8 @@ export default function Header() {
 
 
   return (
-    <header className="bg-[#fff0d6] shadow-sm">
-      <div className="max-w-7xl  mx-auto flex justify-between items-center p-4">
+    <header className="bg-[#fff0d6] ">
+      <div className="max-w-7xl rounded-b-4xl bg-orange-800/30 shadow mx-auto flex justify-between items-center p-4">
         {/* Logo */}
         <Link href="/">
           <h1 className="text-xl font-semibold text-gray-800">ShopClassic</h1>
@@ -93,7 +93,7 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-10 items-center font-medium bg-amber-500/20 rounded-4xl backdrop-blur-2xl shadow px-5">
+        <nav className="hidden md:flex space-x-10 items-center font-medium px-5">
           <Link className="" href="/">Home</Link>
           <Link className="" href="/all-products">Products</Link>
           <Link className="" href="/">About</Link>
