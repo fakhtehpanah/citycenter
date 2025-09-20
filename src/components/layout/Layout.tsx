@@ -29,7 +29,7 @@ export default function Layout({ children}: LayoutProps) {
   // }
   return (
     <CardProvider>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex bg-[#fff0d6] flex-col min-h-screen">
       <Header />
       <main  className="flex-1">
         {children}              
