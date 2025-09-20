@@ -59,11 +59,11 @@ export default function Header() {
 
 
   return (
-    <header className="bg-[#fff0d6] ">
-      <div className="max-w-7xl rounded-b-4xl bg-orange-800/30 shadow mx-auto flex justify-between items-center p-4">
+    <header className=" sticky top-0 z-50 rounded-b-4xl shadow">
+      <div className="max-w-7xl  text-white rounded-b-4xl bg-black shadow mx-auto flex justify-between items-center p-4">
         {/* Logo */}
         <Link href="/">
-          <h1 className="text-xl font-semibold text-gray-800">ShopClassic</h1>
+          <h1 className="text-xl font-semibold">ShopClassic</h1>
         </Link>
 
         {/* Search Box (hidden on small, visible on md+) */}
@@ -73,7 +73,7 @@ export default function Header() {
             onChange={(e) => setSearch(e.target.value)}
             type="text"
             placeholder="Search products..."
-            className="w-full px-10 py-2  rounded-lg border   outline-none transition"
+            className="w-full px-10 py-2  rounded-lg border border-gray-700   outline-none transition"
           />
           <svg
             className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 "
@@ -98,7 +98,7 @@ export default function Header() {
           <Link className="" href="/all-products">Products</Link>
           <Link className="" href="/">About</Link>
           <Link className="" href="/">Contact</Link>
-          <Link className="bg-black text-white w-auto px-5 py-2.5  rounded-4xl hover:border hover:bg-white hover:text-black" href="/login-page">Login</Link>
+          <Link className="bg-white text-black w-auto px-5 py-2.5  rounded-4xl hover:border hover:bg-black hover:text-white" href="/login-page">Login</Link>
           <div>{card.length}</div>
         </nav>
 
@@ -139,14 +139,14 @@ export default function Header() {
 
       {/* Mobile Dropdown */}
         <div ref={menuRef}  className={`md:hidden overflow-hidden transition-[max-height] duration-500 ease-in-out  ${
-    menuOpen ? "max-h-96 opacity-100 p-4" : "max-h-0 opacity-0"
+    menuOpen ? "max-h-96 opacity-100 p-4 bg-black text-white border-t rounded-4xl" : "max-h-0 opacity-0"
   } space-y-4`}>
           {/* Search on mobile */}
-          <div className="relative animate-pulse">
+          <div className="relative">
             <input
               type="text"
               placeholder="Search products..."
-              className="w-full pl-10 pr-4 py-2 transition-all duration-700  rounded-lg border   outline-none "
+              className="w-full pl-10 pr-4 py-2 transition-all duration-700  rounded-lg border  border-gray-700 outline-none "
             />
          
             <svg
@@ -171,7 +171,7 @@ export default function Header() {
             <Link className="" onClick={() => setMenuOpen(false)} href="/all-products">Products</Link>
             <Link className="" onClick={() => setMenuOpen(false)} href="/">About</Link>
             <Link className="" onClick={() => setMenuOpen(false)} href="/">Contact</Link>
-            <Link className="bg-black w-auto px-10 py-2 rounded hover:border hover:bg-white hover:text-black text-white text-center" onClick={() => setMenuOpen(false)} href="/login-page">Login</Link>
+            <Link className="bg-white text-black w-auto px-10 py-2 rounded hover:border hover:bg-black hover:text-white  text-center" onClick={() => setMenuOpen(false)} href="/login-page">Login</Link>
 
           </nav>
         </div>
