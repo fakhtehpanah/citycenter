@@ -5,7 +5,7 @@ import type { Product } from '@/types/types';
 import Landing from '../landing/Landing';
 import LandingPage from '../landing/Landing';
 import Brands from '../brands/Brands';
-import Articles from '../brands/articles/Articles';
+import Articles from '../articles/Articles';
 
 // interface ProductProps {
 //   product: Product;
@@ -58,12 +58,12 @@ function Product() {
 
         {categories.map((cat, index) => (
           <section key={cat} className= {` p-5 flex flex-col gap-y-5
-            ${ categoryStyles[cat] || "bg-white"}`
+             }`
           }>
 
             {/* <img className='absolute bottom-0' src="/Shopping-Online-Shopping--Streamline-Bruxelles.png" alt="" /> */}
             <h2 className="text-xl font-bold  capitalize">{cat}</h2>
-            <div className="p-2.5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 border border-dashed border-amber-300">
+            <div className="p-2.5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 border-4  border-dashed border-orange-200">
               {productByCategory[cat]?.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
