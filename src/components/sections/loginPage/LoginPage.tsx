@@ -19,7 +19,7 @@ export default function LoginPage() {
           Login
         </h2>
 
-        <form className="space-y-6 z-1" onSubmit={handleLogin}>
+        <form className="space-y-6" onSubmit={handleLogin}>
           <div>
             <label htmlFor="email" className="block text-gray-700 py-2">
               Email
@@ -69,7 +69,7 @@ export default function LoginPage() {
           </a>
         </p>
       </div>
-      <img width={300} className="absolute top-0  left-20 py-5 " src="/Group.png" alt="" />
+      {/* <img width={300} className="absolute bottom-0  left-20 py-5 " src="/Group.png" alt="" /> */}
 
     </div>
     
