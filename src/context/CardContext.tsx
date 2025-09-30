@@ -5,6 +5,7 @@ import React, { createContext, useContext, useState, ReactNode } from "react";
 
 interface CardContextType {
   card: Product[];
+  setCard: (product: Product[]) => void;
   addToCard: (product: Product) => void;
   removeFromCard: (product: Product) => void;
   deletedItem: Product | undefined;
@@ -42,7 +43,7 @@ export const CardProvider = ({ children }: { children: ReactNode }) => {
 
 
   return (
-    <CardContext.Provider value={{ card, addToCard, removeFromCard, deletedItem, handleClickProduct}}>
+    <CardContext.Provider value={{ card,setCard, addToCard, removeFromCard, deletedItem, handleClickProduct}}>
       {children}
     </CardContext.Provider>
   );

@@ -8,7 +8,12 @@ export interface ProductDashboardProps {
 }
 
 export default function Dashboard() {
-  const { card, removeFromCard, deletedItem } = useCard();
+  const { card, setCard, removeFromCard, deletedItem } = useCard();
+
+  const handleCheckout = () => {
+    alert('payment was successful');
+    setCard([]);
+  }
 
   return (
     <div className="py-10 px-5">
@@ -17,7 +22,7 @@ export default function Dashboard() {
 
         {card.length === 0 ? (
           <p className="text-gray-500 text-center py-10">
-            هیچ محصولی در سبد خرید وجود ندارد.
+            the cart is empty.
           </p>
         ) : (
           <ul className="space-y-6 py-5">
@@ -67,7 +72,7 @@ export default function Dashboard() {
 
         {card.length > 0 && (
           <div className="py-5 text-center">
-            <button className="bg-blue-500 cursor-pointer text-white px-6 py-3 rounded-xl font-semibold shadow hover:bg-blue-600 transition">
+            <button onClick={handleCheckout} className="bg-blue-500 cursor-pointer text-white px-6 py-3 rounded-xl font-semibold shadow hover:bg-blue-600 transition">
               Check out
             </button>
           </div>
