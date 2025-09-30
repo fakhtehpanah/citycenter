@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useCard } from "@/context/CardContext";
+import { ShoppingCart } from "lucide-react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -99,7 +100,12 @@ export default function Header() {
           <Link className="" href="/">About</Link>
           <Link className="" href="/">Contact</Link>
           <Link className="bg-white text-black w-auto px-5 py-2.5  rounded-4xl hover:border hover:bg-black hover:text-white" href="/login-page">Login</Link>
-          <div>{card.length}</div>
+          <Link href={'/dashboard'} className="relative">
+              <ShoppingCart/>
+              {card.length > 0 && (
+                <span className="absolute -top-2 -right-4 text-amber-300 font-bold text-xl">{card.length}</span>
+              )}
+            </Link>
         </nav>
 
 
@@ -171,6 +177,12 @@ export default function Header() {
             <Link className="" onClick={() => setMenuOpen(false)} href="/all-products">Products</Link>
             <Link className="" onClick={() => setMenuOpen(false)} href="/">About</Link>
             <Link className="" onClick={() => setMenuOpen(false)} href="/">Contact</Link>
+            <Link href={'/dashboard'} className="relative">
+              <ShoppingCart/>
+              {card.length > 0 && (
+                <span className="absolute -top-2 -right-4 text-amber-300 font-bold text-xl">{card.length}</span>
+              )}
+            </Link>
             <Link className="bg-white text-black w-auto px-10 py-2 rounded hover:border hover:bg-black hover:text-white  text-center" onClick={() => setMenuOpen(false)} href="/login-page">Login</Link>
 
           </nav>
